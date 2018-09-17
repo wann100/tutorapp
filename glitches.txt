@@ -1,0 +1,11 @@
+Glitches with the site:
+- Set rates is backwards for admins
+- when tutors try to add a class that the admin needs to accept alert needs to change
+- 1Tutors clicking on accept request or decline request don't get redirected.
+- If tutor doesn't have WePay account, the Pay Now button still shows
+- When admins click on accept class button, the page doesn't redirect.
+
+
+- when I(Jon So) try to request adding a class as a tutor or student no classes show up
+
+- mytutees.html shows tutor's information.

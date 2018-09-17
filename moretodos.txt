@@ -1,0 +1,12 @@
+Redirect URL setup - DONE
+Change checkout page to be similar to landing page. - DONE
+Make a Redirect after tutors make a payment to change the pay value. - DONE
+
+student groups
+fullcalendar reverse the time.
+anti-rape
+people being sick
+
+Figure out more about the calendar.
+Refund api call - Done
+List out appointments. Appointments disappear a week after they're done.

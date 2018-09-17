@@ -1,0 +1,59 @@
+Tutorsbin Studentgroup payment system
+
+Tutorrequestedit: Add selection of payment by studentgroups
+
+Studentgroup pages:
+	-My students:(all requests to be students and all students added shown)
+		-Studentgroup must be able to remove students from there
+	-List of payments or Payment requests
+	-Profile
+
+Student request to be in a Student group
+	-Request button on profile
+		-pulls up a pop up with the list of registered groups
+		-student can request to be in multiple groups
+	-Request sends email notification to studentgroup
+Studentgroup Responds
+	-Requests page
+		-Add student
+
+Student requests an appointment
+	-On request  selects student group that will pay for it
+Student at appointment:
+	-Student marks that he was at appointment and approves payment
+Studentgroup:
+	-Receives request for payment with all information of appointment
+	-Student group approves pays tutor.
+
+Please checkout https://www.wepay.com/developer/reference/preapproval
+
+Sidnote:
+
+Need to make Admin functions work!
+UD needs to be able to input rate for all students
+
+
+Touhey's Notes:
+Student Group should actually be a user. This user will have a studentgroupname.
+
+class Users(ndb.Model):
+	...
+	studentgroupname = ndb.StringProperty() #if empty, this user is NOT a student group.
+
+class Appointments(ndb.Model):
+	...
+	studentgroupname = ndb.StringProperty() #if empty, the student will be paying instead.
+
+class StudentGroupRequests(ndb.Model):
+	student = ndb.IntegerProperty() #links to User
+	groupname = ndb.StringProperty() #links to User.studentgroupname
+
+class StudentGroups (ndb.Model):
+	student = ndb.IntegerProperty() #links to User
+	groupname = ndb.StringProperty() #links to User.studentgroupname
+
+Student must make a request to be in a student group.
+Student Group must approve student to be in the list.
+
+Under student's Pay button, they should be able to request to have a student group pay.
+If you have selected a student group to pay, it dissapears from the student's list.

@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tutortemp.dwt" codeOutsideHTMLIsLocked="false" --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="statics/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/lib/moment.min.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/lib/jquery.min.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="statics/js/jquery.bpopup.min.js"></script>
+<script type="text/javascript" src="statics/js/ddslick.js"></script>
+<script type="text/javascript" src="statics/glDatePicker/glDatePicker.js"></script>
+<script type="text/javascript" src="statics/jqueryui/jquery-ui.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44055196-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Calendar</title>
+<script type='text/javascript'>
+  $(document).ready(function() {
+	// page is now ready, initialize the calendar...
+  
+  $('#calendar').fullCalendar({
+  // put your options and callbacks here
+	header:{
+	left:'',
+	center:'',
+	right:'',
+  },
+	allDaySlot:false,
+	height:'auto',
+	minTime:'00:00:00',
+	maxTime:'24:00:00',
+	slotDuration:'01:00:00',
+	events:[
+	{
+	  'title':'FIRSTEVENT',
+	  'start':'2014-10-15T08:20:30-05:00',
+	  'end':'2014-10-15T10:20:30-05:00',
+	  'color':'black',
+	  'allday':false
+	},
+	  {{ calendar }}
+	]
+  })
+  $('#calendar').fullCalendar('changeView','agendaWeek');
+  
+  });
+
+</script>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="statics/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<link href="statics/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print'/>
+<link href="statics/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+<link href="statics/glDatePicker/styles/glDatePicker.default.css" rel="stylesheet" type="text/css" />
+<link href="statics/stylesheet/datepicker.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id='loginbox'><a class="b-close">x</a> <h3>Login</h3>
+    <table border="0" cellspacing="0" cellpadding="5" align="center">
+      <form method="post" action="/login">
+        <tr>
+          <td valign="middle">Username: </td>
+          <td valign="middle"><input class='highlight' name="username" type="text" /></td>
+        </tr>
+        <tr>
+          <td valign="middle">Password: </td>
+          <td valign="middle"><input class='highlight' name="password" type="password" /></td>
+        </tr>
+        <tr>
+          <td colspan=2>
+          <input type="submit" class="pure-button" value="Submit" />
+          </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+  <center><div style='width:100%;height:10px;top:30px;margin:0;padding:0;position:fixed;z-index:200000'>
+  <!--<img src="{{ emblem }}"/ height='85' />--></div></center>
+  <div class="head">
+ <!-- InstanceBeginEditable name="navigation" -->
+<!-- InstanceEndEditable -->
+      <table style="min-width: 4%;" >
+        <tr>
+		  <td  width="160"><img src="statics/images/tutor_logo.png" alt="Tutor's Bin" width="130"/></td>
+          <td width="1"><img src="statics/images/title_line.png" alt="|" width="150%" /></td>
+                    <td width="150"><img src="{{ logo }}" alt="University" width="110"/></td>
+          
+        </tr>
+      </table>
+      <span onclick="window.location.assign('/logout')" id='logout'><h2>Log Out</h2></span>
+    </div>
+  </div>
+    <form method="post" action="mytutors.html">
+      <div class="navbar">
+        <img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab1url }}")' id='mycalendertext'class='navbutton'>{{ tab1 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab2url }}")'id='mytutorstext'class='navbutton'>{{ tab2 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab3url }}")'id='myforumstext'class='navbutton'>{{ tab3 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab4url }}")'id='myprofiletext'class='navbutton'>{{ tab4 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><input class='input' size='20' style="position:absolute; right:4%;width:10%;padding:4px" id="mysearch" name="mysearch" placeholder="Search For Tutor"/>
+        <input type="image" src="statics/images/searchicon.png" alt="Submit Form" width="25px" style="position:absolute; right:1%;"/>
+        <div id='navline'></div>	 
+      </div>
+    </form>
+  </div>
+  <div id='whitebox'></div>
+  <div id="grayline"></div>
+
+  <div class="grayside">
+
+<!-- InstanceBeginEditable name="GrayRegion" -->
+    <div class="leftcalendar"  style="width:100%;">
+    <div id="datepicker" style="z-index:0"></div>
+    <!--
+      <table width="100%" border="0" cellspacing="10" align="center" cellpadding="0">
+        <tr>
+          <td align="center" valign="middle"><img src="statics/images/clarrow.png" width="20" alt="<" /></td>
+          <td align="center" valign="middle"><span style="font-family:'Arvo';font-size:340%;font-weight:bold;">SEP<br />TEM<br />BER</span></td>
+          <td align="center" valign="middle"><img src="statics/images/crarrow.png" width="20" alt=">" /></td>
+        </tr>
+      </table>-->
+      <div class="minicalendar" >
+      <input type="text" style="visibility:hidden;width:100%;margin-top:8%;" id="example"></input>
+      <script type="text/javascript">
+        $(window).load(function()
+        {
+            $('#example').glDatePicker(
+				{
+					showAlways: true
+				});
+        });
+      </script>
+      <!--
+        <table width="60%" border="0" align='center' cellspacing="3" cellpadding="0">
+          <tr style='font-weight:bolder;'>
+            <td align="center" valign="middle">S</td>
+            <td align="center" valign="middle">M</td>
+            <td align="center" valign="middle">T</td>
+            <td align="center" valign="middle">W</td>
+            <td align="center" valign="middle">T</td>
+            <td align="center" valign="middle">F</td>
+            <td align="center" valign="middle">S</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+          </tr>
+          <tr>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+            <td align="center" valign="middle">N</td>
+          </tr>
+        </table>-->
+      </div>
+    </div>
+		<!-- InstanceEndEditable -->
+  </div>
+  <div id='main'>
+<!-- InstanceBeginEditable name="MAINREGION" -->
+    <div id='calendar'></div>
+	<!-- InstanceEndEditable -->	
+  </div>
+<!-- /navbar -->
+
+  <div class='footer'>
+    <center>
+    <img id='farrow' onclick='ftoggle();'style='margin:12px;'src="statics/images/uarrow.png" width="48" />
+    <table width="90%" border="0">
+      <tr>
+        <td height="140"><div class="inputbox">
+        <span id='notesbox' style="font-family:'Arvo'">Notes:</span> 
+        <span id='penback'> <img src="../statics/images/pen.png"width="20" /></span>
+        <span id='plusback'> <img src="../statics/images/plus.png"width="20" /></span>
+        <span><textarea name="comments" cols="58" rows="4" style=" background:none; border-style:solid; margin-top:10px;"> </textarea></span>
+        </div></td>
+        <td>&nbsp;</td>
+        <td align="left">
+        <span id="helpbox">Need a Little Help?</span> 
+        <br /><br />
+        <div id="functionalitybutton"><button style="font-family:'Arvo'; font-size:1.0em; display:inline; color:rgb(0,147,231); background-color:transparent; border: 0; margin: 0; margin-left:-10px;">How Tutorsbin Functions</button></div>
+        <br />
+        <div id="faqbutton"><button style="font-family:'Arvo'; font-size:1.0em; display:inline; color:rgb(0,147,231); background-color:transparent; border: 0; margin: 0; margin-left:-10px;">Frequently Asked Questions</button></div>
+        <br />
+        </td>
+      </tr>
+    </table>
+<!-- Popup for when you click on How Tutorsbin Functions -->
+    <div id="howitworksbox">
+      <div style="align:center; margin:5px; border:1px solid #dfdfdf; padding:10px;">
+        <p align="center"><img src="statics/images/howitfunctions.png" width="50%" height="50%" /></p>
+        <div style="padding-left:40px;"><br />
+          <p style="text-indent:50px;">Coming Soon<br />
+          Coming Soon<br />
+          <p><br /><br />Cheers,<br />
+          <span style="color:rgb(0,147,231);">Tutorsbin</span> Team</p>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+
+<!-- Popup for when you click on Frequently Asked Questions -->
+    <div id="faqbox">
+      <div id="qna" style="margin:5px; overflow-y: scroll; height: 500px;">
+        <table style="align:center; width: 100%; border-collapse:collapse;">
+          <tr style="border: 1px solid #d3d3d3;">
+            <th style="font-size:2.5em; border: 1px solid #d3d3d3; padding-top: 20px; padding-bottom: 20px;">Questions and Answers<div style="float: right;"><input class='input' align="right" style="position:absolute; right:6%;width:15%;" id="mysearch" type="search" placeholder="SEARCH BY TOPIC"/><img src="statics/images/searchicon.png" width="25px" align="right" style="position:absolute; right:2%;"/></div></th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #d3d3d3; height: 500px;">
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: How do I pay my tutor?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: Do my college professors know about this?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: Do my college professors know about this?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: Do my college professors know about this?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="askqna" style="margin:5px; margin-top: 25px;">
+        <table style="align:center; width: 100%; border-collapse:collapse;">
+          <tr style="background-color: #919191; color: white;">
+            <th style="padding:5px;">HAVE A QUESTION THAT DIDN'T GET ANSWERED?</th>
+          </tr>
+          <tr style="text-align: left;">
+            <td style="padding: 20px 75px;"><p>WRITE YOUR QUESTION HERE &nbsp;<input align="right" style="position:absolute; width:50%; padding: 5px 10px;" type="input" placeholder="...what would you like answered?"/></p>
+            <p>TOPIC: &nbsp;<input align="left" style="position:absolute; width:20%; padding: 5px 10px;" type="input" placeholder="financial, etc."/> <input class="pure-button" align="right" style="position:relative; margin-left: 200px;" type="submit" value="SEND"/></p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  </center>
+<!-- InstanceBeginEditable name="FooterRegion" -->
+		<!-- InstanceEndEditable -->
+</body>
+<script type="text/javascript" src="statics/js/mocode.js"></script>
+<!-- InstanceEnd --></html>

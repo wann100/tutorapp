@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+<link href="statics/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<link href="statics/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print'/>
+<link href="statics/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+<link href="statics/glDatePicker/styles/glDatePicker.default.css" rel="stylesheet" type="text/css" />
+<link href="statics/stylesheet/datepicker.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="statics/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/lib/moment.min.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/lib/jquery.min.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="statics/js/jquery.bpopup.min.js"></script>
+<script type="text/javascript" src="statics/js/ddslick.js"></script>
+<script type="text/javascript" src="statics/glDatePicker/glDatePicker.js"></script>
+<script type="text/javascript" src="statics/jqueryui/jquery-ui.min.js"></script>
+<title>Welcome To Tutor's Bin</title>
+<style>
+
+@font-face {
+	font-family: arvo-regular;
+	src:url(../fonts/Arvo-Regular.ttf)format("truetype"),url(../fonts/Arvo-Regular.otf);
+}
+@font-face {
+	font-family: arvo-bold;
+	src:url(../fonts/Arvo-Bold.ttf)format("truetype"),
+	url(../fonts/Arvo-Bold.otf);
+}
+@font-face {
+	font-family: arvo-italic;
+	src:url(../fonts/Arvo-Italic.ttf)format("truetype"),url(../fonts/Arvo-Italic.ttf);
+}
+@font-face {
+	font-family: 'Myriad Pro Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Myriad Pro Regular'), url('MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+html, body, #wrapper { 
+    width:100%;
+    height: 100%;
+	margin:0px;
+	padding:0px;
+	background:url(statics/images/homepage_bg.png);
+	background-size:cover;
+}
+#wrapper{
+	-moz-box-shadow:    inset 0 0 100px #999;
+   -webkit-box-shadow: inset 0 0 100px #999;
+   box-shadow:         inset 0 0 100px #999;
+   margin:0px;
+   padding:0px;
+
+   display:table;
+}
+#vmid{
+	vertical-align:middle;
+	height:100%;
+	padding:0px;
+	margin:0px;
+	white-space: nowrap;
+    text-align: center;
+	
+	display:table-cell;
+	color: #464646;
+}
+
+#img{
+	vertical-align:middle;
+	margin-top:55px;
+	min-width:300px;
+}
+#mainbox{
+	/*min-width:600px;*/
+
+
+	vertical-align:middle;
+	margin-top:20px;
+	border-radius:12px;
+}
+.myinput{
+	width:90%;
+	height:20px;
+	padding:6px;
+	text-align:left;
+	border:0px;
+	background-color:#f5f5f5;
+}
+
+.myinput:hover{
+	box-shadow: 0px 0px 5px #00F;
+}
+.myinput:focus{
+	outline:solid;
+}
+.sub{
+	background-color:rgb(0,147,231);
+	width:30%;
+	outline:none;
+	border:0;
+	padding:7px;
+	color:#FFFFFF;
+	
+}
+
+.sub:hover{
+	background-color:#09F;
+}
+.sub:focus{
+		box-shadow: 0px 0px 5px #0F0;
+}
+#linegray{
+	width:200px;
+	
+}
+hr {
+ 
+
+ background: rgb(204,204,204);
+  height: 4px;
+  width:25%;
+  border:none;	
+}
+
+/* webkit solution */
+::-webkit-input-placeholder { text-align:left; text-indent:10px; }
+/* mozilla solution */
+input:-moz-placeholder { text-align:left; }
+a{
+	 text-decoration: none;
+	font-family:"Myriad Pro";
+	color:#000;
+}
+a:hover{
+	color:rgb(0,147,231);
+}
+
+#useragreement{
+	width:110%;
+	height:200px;
+	word-wrap:normal !important;
+	border-style:solid;
+	border-width:3px;
+	border-color: #e3e3e3;
+	
+	border-radius:8px;
+	overflow:hidden;
+}
+
+.column{
+	text-align:left;
+	display: block;
+    float:left; 
+    width:33%;
+}
+.column2{
+	text-align:left;
+	display: block;
+    float:left; 
+    width:55%;
+}
+
+#submitbutton{
+	width:200px;
+	height:25px;
+	background-color:#0093e7;
+	color:#FFF;
+	border:0;
+	cursor:pointer;
+}
+#submitbutton:hover{
+	background-color:#0CF;
+}
+td{
+	font-family:'Kreon';
+	font-weight:bold;
+}
+.numberCircle {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+	
+    padding: 4px;
+	padding-left:7px;
+	padding-right:7px;
+    
+    background: #fff;
+    border: 2px solid #e3e3e3;
+    color: rgb(0,137,231);
+    text-align: center;
+    
+    font: 12px 'Myriad Pro', sans-serif;
+}
+</style>
+</head>
+<body>
+	
+	<div id='wrapper'>
+		<div id='vmid'>    
+
+        <form method='post' action="/createuser">
+            <center>
+            <div  style="background:white; width:900px; padding-top:20px; height:650px;">	
+           
+             <div  style="background:white; width:870px; height:630px;border: rgb(204,204,204);border-style: solid;border-width: 3px;">
+              <div>
+              <img src="statics/images/biglogo.png" width="20%" style='text-align:left;position:static;' alt="Tutor'sBin" />
+               <hr style="position:relative;  left:250px; top:60px;" />
+               <hr style="position:relative;  right:240px; top:45px;" />
+              <span style="font-family:'Kreon', 'Arial Black','Gadget', 'sans-serif';  font-size:58px;">Welcome!</span><br />
+<div style="font-family:'Kreon', 'Arial Black','Gadget', 'sans-serif';  font-size:15px;">LET'S GET YOU SET UP SHALL WE.</div>
+              <div class='column'>
+              
+              <table width="100%" border="0" cellspacing="4" cellpadding="0" id='mainbox'>
+                  <tr valign="middle" align="center">
+                  	<td width="1%" class="numberCircle">1</td>
+                  	<td colspan='2' width='99%' align='left'>Info:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%'  align='left'>First Name:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'><input required="required"  class='myinput' name='firstname' type="text" placeholder="First Name" ></input></td>
+                    
+                  </tr>
+                <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%'  align='left'>Last Name:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'><input required="required"  class='myinput' name='lastname' type="text" placeholder="Last Name"> </input></td>
+                    
+                  </tr>
+                  
+                  <tr valign="middle" align="center">
+
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'>Email:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'><input required="required"  class='myinput' name='email' type="text" email="{{email}}" placeholder="EMail"></input></td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'>Phone:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'><input required="required" class='myinput' name='phonenumber' type="text" placeholder="Phone Number"></input></td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'>Username:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='left'><input required="required" class='myinput' name='username' type="text" placeholder="Enter Your Username" ></input></td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='1' width='99%' align='left'> Password:</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+					<td colspan='1' width='99%' align='left'><input required="required"  class='myinput' name='password' type="password" value="" placeholder="Enter Your Password"></input></td>
+                  </tr>
+                  
+
+                 
+                  
+              </table>
+              
+              
+              
+			</div>
+       
+            <div class='column2'>
+              
+              <table width="100%" border="0" cellspacing="9" cellpadding="0" id='mainbox'>
+                  <tr valign="middle" align="center">
+                  	<td width="1%" class="numberCircle">2</td>
+                  	<td colspan='2' width='99%' align='left'>User Agreement</td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='2' width='99%' align='center'><iframe frameborder="0" width="100%a" id='useragreement' src="tos.html"></iframe></td>
+                  </tr>
+                  <tr valign="middle" align="center">
+                  	<td width="1%"></td>
+                  	<td colspan='1' width='99%' align='center'><p style='font-size:10px'>I have read the end user license agreement<br /> and agree with the terms and conditions.I also acknowledge this is only a 12 month free trial of Tutor'sbin</p></td>
+                    <td colspan='1' width='99%' align='center'><input required="required"  name='tos' type="checkbox"></input></td>
+                  </tr>
+                  
+              </table>
+              
+			</div>
+            <br />
+            
+            </center>
+    		<div style="width:100%;margin-top:-8%; margin-left:10%;position:absolute;">
+            	<input id='submitbutton' type="submit" value="Submit">
+                </form>
+            </div>
+            </div>
+        </div>
+	</div>
+<script type="text/javascript" src="statics/js/mocode.js"></script>
+</body>
+</html>

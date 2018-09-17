@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome To Tutor's Bin</title>
+<style>
+html, body, #wrapper { 
+    width:100%;
+    height: 100%;
+	margin:0px;
+	padding:0px;
+	background:url(statics/images/homepage_bg.png);
+	background-size:cover;
+}
+#wrapper{
+	-moz-box-shadow:    inset 0 0 100px #999;
+   -webkit-box-shadow: inset 0 0 100px #999;
+   box-shadow:         inset 0 0 100px #999;
+   margin:0px;
+   padding:0px;
+
+   display:table;
+}
+#vmid{
+	vertical-align:middle;
+	height:100%;
+	padding:0px;
+	margin:0px;
+	white-space: nowrap;
+    text-align: center;
+	
+	display:table-cell;
+}
+
+#img{
+	vertical-align:middle;
+	margin-top:15px;
+	min-width:300px;
+}
+#mainbox{
+	min-width:600px;
+
+
+	vertical-align:middle;
+	margin-top:20px;
+	border-radius:12px;
+}
+.myinput{
+	width:100%;
+	height:25px;
+	padding:6px;
+	text-align:center;
+}
+
+.myinput:hover{
+	box-shadow: 0px 0px 5px #00F;
+}
+.myinput:focus{
+	outline:solid;
+}
+.sub{
+	background-color:rgb(0,147,231);
+	width:30%;
+	outline:none;
+	border:0;
+	padding:7px;
+	color:#FFFFFF;
+	
+}
+
+.sub:hover{
+	background-color:#09F;
+}
+.sub:focus{
+		box-shadow: 0px 0px 5px #0F0;
+}
+#linegray{
+	width:200px;
+	
+}
+hr {
+ 
+
+ background: rgb(204,204,204);
+  height: 4px;
+  width:25%;
+  border:none;	
+}
+input{
+	background:rgb(245,245,245); 
+	border:rgb(211,211,211); 
+	border-width:3px; 
+	border-style:solid;
+	font-family:"Myriad Pro";
+	font-size:18px;
+	font-weight:bold;
+
+}
+/* webkit solution */
+::-webkit-input-placeholder { text-align:left; text-indent:10px; }
+/* mozilla solution */
+input:-moz-placeholder { text-align:left; }
+a{
+	 text-decoration: none;
+	font-family:"Myriad Pro";
+	color:#000;
+}
+a:hover{
+	color:rgb(0,147,231);
+}
+</style>
+</head>
+<body>
+	
+	<div id='wrapper'>
+		<div id='vmid'>    
+        
+            <center>
+            <div  style="background:white; width:800px; padding-top:20px; height:450px;">	
+           
+             <div  style="background:white; width:770px; height:430px;border: rgb(204,204,204);border-style: solid;border-width: 3px;">
+              <div>
+               <hr style="position:relative;  left:250px; top:80px;" />
+               <hr style="position:relative;  right:240px; top:65px;" />
+              <img id='img' src="statics/images/biglogo.png" width="10%" alt="Tutor'sBin" />
+              
+              <div>
+	    <div id="wepay_checkout"></div>
+    <script type="text/javascript" src="https://www.wepay.com/min/js/iframe.wepay.js">
+    </script>
+    <script type="text/javascript">
+        WePay.iframe_checkout("wepay_checkout", "{{ checkout }}");
+    </script>
+			</div>
+
+            </div>
+        </div>
+	</div>
+
+</body>
+</html>

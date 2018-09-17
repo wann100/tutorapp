@@ -1,0 +1,608 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/tutortemp.dwt" codeOutsideHTMLIsLocked="false" --><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Kreon' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="statics/js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/lib/moment.min.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/lib/jquery.min.js"></script>
+<script type="text/javascript" src="statics/fullcalendar/fullcalendar.min.js"></script>
+<script type="text/javascript" src="statics/js/jquery.bpopup.min.js"></script>
+<script type="text/javascript" src="statics/js/ddslick.js"></script>
+<script type="text/javascript" src="statics/glDatePicker/glDatePicker.js"></script>
+<script type="text/javascript" src="statics/jqueryui/jquery-ui.min.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44055196-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>My Tutees</title>
+<script type="text/javascript">
+var datenum = 0;
+var laspos = new Array();
+</script>
+<!-- InstanceEndEditable -->
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<link href="statics/stylesheet/style.css" rel="stylesheet" type="text/css" />
+<link href="statics/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print'/>
+<link href="statics/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+<link href="statics/glDatePicker/styles/glDatePicker.default.css" rel="stylesheet" type="text/css" />
+<link href="statics/stylesheet/datepicker.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id='loginbox'><a class="b-close">x</a> <h3>Login</h3>
+    <table border="0" cellspacing="0" cellpadding="5" align="center">
+      <form method="post" action="/login">
+        <tr>
+          <td valign="middle">Username: </td>
+          <td valign="middle"><input class='highlight' name="username" type="text" /></td>
+        </tr>
+        <tr>
+          <td valign="middle">Password: </td>
+          <td valign="middle"><input class='highlight' name="password" type="password" /></td>
+        </tr>
+        <tr>
+          <td colspan=2>
+          <input type="submit" class="pure-button" value="Submit" />
+          </td>
+        </tr>
+      </form>
+    </table>
+  </div>
+  <center><div style='width:100%;height:10px;top:30px;margin:0;padding:0;position:fixed;z-index:200000'>
+  <!--<img src="{{ emblem }}"/ height='85' />--></div></center>
+  <div class="head">
+ <!-- InstanceBeginEditable name="navigation" -->
+<!-- InstanceEndEditable -->
+      <table style="min-width: 4%;" >
+        <tr>
+		  <td  width="160"><img src="statics/images/tutor_logo.png" alt="Tutor's Bin" width="130"/></td>
+          <td width="1"><img src="statics/images/title_line.png" alt="|" width="150%" /></td>
+                    <td width="150"><img src="{{ logo }}" alt="University" width="110"/></td>
+          
+        </tr>
+      </table>
+      <span onclick="window.location.assign('/logout')" id='logout'><h2>Log Out</h2></span>
+    </div>
+  </div>
+    <form method="post" action="mytutors.html">
+      <div class="navbar">
+        <img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab1url }}")' id='mycalendertext'class='navbutton'>{{ tab1 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab2url }}")'id='mytutorstext'class='navbutton'>{{ tab2 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab3url }}")'id='myforumstext'class='navbutton'>{{ tab3 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><span onclick='window.location.assign("{{ tab4url }}")'id='myprofiletext'class='navbutton'>{{ tab4 }}</span><img style='margin:-3px;margin-bottom:-20px;margin-top:-40px;padding-top:0px;z-index:100' src="statics/images/lbox.png" width="6" height="50" /><input class='input' size='20' style="position:absolute; right:4%;width:10%;padding:4px" id="mysearch" name="mysearch" placeholder="Search For Tutor"/>
+        <input type="image" src="statics/images/searchicon.png" alt="Submit Form" width="25px" style="position:absolute; right:1%;"/>
+        <div id='navline'></div>	 
+      </div>
+    </form>
+  </div>
+  <div id='whitebox'></div>
+  <div id="grayline"></div>
+
+  <div class="grayside">
+
+<!-- InstanceBeginEditable name="GrayRegion" -->
+    <div id='cancelapptbutton' class='popupbox'>
+    <center>
+    Are you sure?
+    <form method="post" action="/cancelappointment">
+    <input hidden name="cancelapptid" id="cancelapptid" value="" />
+    <input type="submit" value="Yes" />
+   
+    <input class="b-close"  style="left:300px; top:20px; background-image:none;" type="button" value="no" />
+    </form>
+    </center>
+    </div>
+    
+<div class="upper_region">
+      <img src="{{ avatar }}" width="70%" style="max-width: 380px; max-height: 380px; overflow: hidden;">
+      <p>THIS IS HOW YOU PROFILE LOOKS<br />WHEN VIEWED BY OTHERS</p>
+    </div>
+    <div id="dottedline"></div>
+    <!--lower_region includes Name, basic student info, classes, and time preferences-->
+    <div class="lower_region">
+      <p style="font-weight: bold; padding-top: 10px;"><span style="font-size: 2.5em;">{{ firstname }} {{ lastname }}</span></p>
+      <p style="">Status: {{ status }}<br />
+      Year: {{ year }}<br />
+      Major: {{ majors }}<br />
+      Minor: {{ minors }}</p>
+    </div>
+	<!-- InstanceEndEditable -->
+  </div>
+  <div id='main'>
+<!-- InstanceBeginEditable name="MAINREGION" -->
+    <!-- Table to show you what colors mean and the small colored boxes still need to be added -->
+    <table style="padding:15px; font-family:'Kreon';">
+      <tr>
+        <td style="padding-left:60px;"><span class="status_orange"></span>APPROVED</td>
+        <td style="padding-left:60px;"><span class="status_blue"></span>CONFIRMED TUTOR</td>
+        <td style="padding-left:60px;"><span class="status_black"></span>PAST CLASS</td>
+      </tr>
+    </table>
+    <br />
+    <div id="line"></div>
+
+    <!-- Table for data on tutors you are using or have used before -->
+    <div style="margin-left:20%;">
+    
+      <p style="margin-left:20%; font-weight:bold;font-family: 'Kreon';">REFINE YOUR SEARCH:</p> 
+      <table width="70%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        	<td>|</td>
+        	<td><input type="checkbox"></input> All Tutors</td>
+          <td style="color:rgb(204,204,204)">|</td>
+          <td><input type="checkbox" checked="checked"></input>Waiting For Approval</td>
+          <td style="color:rgb(204,204,204)">|</td>
+          <td><input type="checkbox" checked="checked"></input> Confirmed Tutor</td>
+          <td style="color:rgb(204,204,204)">|</td>
+          <td><input type="checkbox" checked="checked"></input> Past Class</td>
+          <td style="color:rgb(204,204,204)">|</td>
+          <td><input type="checkbox"></input> Possible Classes</td>
+          <td style="color:rgb(204,204,204)">|</td>
+        </tr>
+        <tr>
+          
+          
+        </tr>
+        <tr>
+          
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    </div>
+    {{approved}}
+    {{ tutors }}
+    
+      </td>
+    </table>
+  
+    
+    <!-- TUTOR REQUEST FORM -->
+    <style>
+		.myselect2 {
+ 			overflow: hidden;
+  			width: 100px;
+			height:40px;
+  			border: 1px solid #f5f5f5;
+  			background-color: #f5f5f5;
+  			padding: 10px 10px;
+  			margin-left: 25px;
+		}
+	</style>
+     <div id="contactform" style="width:400px; height:500px;">
+     <center>
+     <a target="_blank" id="gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to={{email}}&su=TUTORING%20REQUEST&body=Thank You"><img src="statics/images/Gmail-icon.png" width="50%" /> </a>
+      <!--<br />
+<a target="_blank" href="https://compose.mail.yahoo.com/?to=mamadouwann@gmail.com;subj=TUTORING%20REQUEST;body=Thank You"><img src="statics/images/yahoomail.png" width="50%" /></a>-->
+        <br />  
+     <a target="_blank" id="hotmail" href="https://mail.live.com/default.aspx?rru=compose;to={{email}};subject=TUTORING%20REQUEST;body=Thank You"><img src="statics/images/windows.jpg" width="50%" /></a>
+     </center>     </div>
+    <div id='tutorrequestform'>
+    <script>
+	var ratesperclass = [];
+	</script>
+    <form method="post" action="/sendRequest">
+    <input id="requesttutorclass" name="requesttutorclass" hidden/>
+      <div id='requestform1'>
+        <center><span style="font-family:'Kreon';font-size:2.5em;">TUTOR REQUEST FORM</span></center><br />
+        <div style="position:absolute;top:45px;right:30px;">Date: <span class="timepref">9/19/2014</span></div>
+        <table align="center" style="border:none; font-family:'Kreon';">
+          <td>
+            <table style="border:2px solid black; border-collapse:collapse; font-family:'Kreon'; background:#f5f5f5; border-color:rgb(204,204,204);">
+              <tr>
+                <td style="width:300px; border-right:2px dashed rgb(204,204,204);">
+                  <!-- Gray box for hourly rate -->
+                  <div align="center" style="width:50px; height:20px; background:#e3e3e3; margin-left:350px; margin-right:-1px; margin-top:-2px; font-size:.8em; padding: 5px;">$<span id="requestrate"></span>/hr</div>
+                  <div class="wrap" style="width:400px;">
+                    <!-- Puts the tutor's rating as a caption below their picture -->
+                    <div style="padding-left:15px; width:150px; font-size:80%; text-align:right;">
+                    <img width="75%" src="statics/images/profilepic.png" style="height: auto; width:150px; height:150px;" alt="alternate text">
+                    Rating ###
+                    </div>
+                    <p><span style="font-size:2em; font-weight:bold;">
+                    <span id="requestname">Taylor Patterson</span><br /></span><br />
+                    <span style="font-size:0.9em;">
+                    Status: Tutor<br />
+                    Year: <span id="requestyear">Junior</span><br />
+                    Major: <span id="requestmajor">English Literature</span><br />
+                    Minor: <span id="requestminor">History</span></span></p>
+                  </div>
+                </td>
+                <td style="padding: 15px; border-right:2px dashed rgb(204,204,204);">
+                  <p align="center"><span style="font-size:1.1em; font-weight:bold; font-family:'Myriad Pro Regular';">AVAILABILITY</span><br /></p>
+                  <p style="font-size:0.9em;">
+                  <span id="requestavail"></span>
+                  </p>
+                </td>
+                <td style="padding: 15px;">
+                  <p align="center" style="margin-top:-70px;"><span style="font-size:1.1em; font-weight:bold; font-family:'Myriad Pro Regular';">SELECT CLASS</span><br /></p>
+                  <p style="font-size:0.8em;"><select id="tutorclassid" name="tutorclassid" onchange="changerates();"></select>
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </table>
+      <br />
+      
+      
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr align="center">
+            <td width="30%"><span style="font-family:'Myriad Pro Regular'; font-weight:bold;">SELECT DESIRED DAYS</span><br />
+            <span style="font-size:0.84em;">(Click calendar to add a day)</span></td>
+            <td width="5%"><img src="statics/images/rightarrow.png" width="18" height="15" alt="Right" /></td>
+            <td width="65%" ><span style="font-family:'Myriad Pro Regular';;font-weight:bold;">SELECT TIME</span></td>
+          </tr>
+      </table>
+      
+  
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+     
+       <td width="100%" valign="top">
+            <table id='dates' width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="center">DATE</td>
+                <td align="center">START</td>
+                <td align="center">&nbsp;</td>
+                <td align="center">END</td>
+                <td align="center">&nbsp;</td>
+                <td align="center">HRS</td>
+              </tr>
+              <tr align="center">
+                <td ><input id="date1" name="date1" type="date" class='myselect2'style="height:24px;width:180px;padding:2px;border-style:solid;border-width:thin;border-color:#333;text-align:center;"></input></td>
+                <td>
+                	<select id="start1" name="start1" onchange="updateClassRates()" class='myselect2'>
+                    	<option value="1">1:00am</option>
+                        <option value="2">2:00am</option>
+                        <option value="3">3:00am</option>
+                        <option value="4">4:00am</option>
+                        <option value="5">5:00am</option>
+                        <option value="6">6:00am</option>
+                        <option value="7">7:00am</option>
+                        <option value="8">8:00am</option>
+                        <option value="9">9:00am</option>
+                        <option value="10">10:00am</option>
+                        <option value="11">11:00am</option>
+                        <option value="12" selected="selected">12:00pm</option>
+                        <option value="13">1:00pm</option>
+                        <option value="14">2:00pm</option>
+                        <option value="15">3:00pm</option>
+                        <option value="16">4:00pm</option>
+                        <option value="17">5:00pm</option>
+                        <option value="18">6:00pm</option>
+                        <option value="19">7:00pm</option>
+                        <option value="20">8:00pm</option>
+                        <option value="21">9:00pm</option>
+                        <option value="22">10:00pm</option>
+                        <option value="23">11:00pm</option>
+                        <option value="24">12:00am</option>
+                    </select>
+                    </td>
+                <td><img src="statics/images/rightarrow.png" height='10' /></td>
+                <td>
+                <select id="end1" name="end1" onchange="updateClassRates()" class='myselect2'>
+                    	<option value="1">1:00am</option>
+                        <option value="2">2:00am</option>
+                        <option value="3">3:00am</option>
+                        <option value="4">4:00am</option>
+                        <option value="5">5:00am</option>
+                        <option value="6">6:00am</option>
+                        <option value="7">7:00am</option>
+                        <option value="8">8:00am</option>
+                        <option value="9">9:00am</option>
+                        <option value="10">10:00am</option>
+                        <option value="11">11:00am</option>
+                        <option value="12" selected="selected">12:00pm</option>
+                        <option value="13">1:00pm</option>
+                        <option value="14">2:00pm</option>
+                        <option value="15">3:00pm</option>
+                        <option value="16">4:00pm</option>
+                        <option value="17">5:00pm</option>
+                        <option value="18">6:00pm</option>
+                        <option value="19">7:00pm</option>
+                        <option value="20">8:00pm</option>
+                        <option value="21">9:00pm</option>
+                        <option value="22">10:00pm</option>
+                        <option value="23">11:00pm</option>
+                        <option value="24">12:00am</option>
+                    </select>
+                </td>
+                <td>=</td>
+                <td><span id="hours1"></span>h</td>
+              </tr>
+
+          </table>
+         
+         <div style='padding-top:12%;padding-left:35%; font-weight:bold;'>
+<!--Where the ADD another day button is-->
+   <input value="ADD ANOTHER DAY" type="button" style=" color: white; background-color: #0093e7; border: 1px solid white; margin: 1px solid white; height: 20px; width: 200px; font-weight: bold; font-size:0.9em; position:absolute; right:35%; top:65%;" onclick="addDate();">
+<input value="REMOVE DAY" type="button" style=" color: white; background-color: #0093e7; border: 1px solid white; margin: 1px solid white; height: 20px; width: 200px; font-weight: bold; font-size:0.9em; position:absolute; right:10%; top:65%;" onclick="removeDate();">
+
+<script>
+function addDate()
+{
+	datenum = 1;
+	var elem = document.getElementById('date1');
+	while (elem != null)
+	{
+		datenum++;
+		elem = document.getElementById('date'+datenum);
+	}
+	elem = document.getElementById('dates');
+	
+	/*<tr align="center">
+		<td ><input id="date1" name="date1" type="date" class='myselect2'style="height:24px;width:180px;padding:2px;border-style:solid;border-width:thin;border-color:#333;text-align:center;"></input></td>
+		<td>
+			<select id="start1" name="start1" onchange="updateClassRates()" class='myselect2'>
+			</select>
+			</td>
+		<td><img src="statics/images/rightarrow.png" height='10' /></td>
+		<td>
+		<select id="end1" name="end1" onchange="updateClassRates()" class='myselect2'>
+			</select>
+		</td>
+		<td>=</td>
+		<td><span id="hours1"></span>h</td>
+	  </tr>*/
+	
+	var string = '<tr align="center"><td ><input id="date'+datenum+'" name="date'+datenum+'" type="date" class="myselect2" style="height:24px;width:180px;padding:2px;border-style:solid;border-width:thin;border-color:#333;text-align:center;"></input></td>'
+	string += '<td><select id="start'+datenum+'" name="start'+datenum+'" onchange="updateClassRates()" class="myselect2">'
+	var times = ''
+	for (var i = 1; i <= 24; i++)
+	{
+		times += '<option '
+		if (i==12)
+			times += 'selected="selected" '
+		times += 'value="'+i+'">'
+		times += ((i+11)%12+1)+':00'
+		if (i >= 12 && i < 24)
+			times += 'pm'
+		else times += 'am'
+		times += '</option>';
+	}
+	string += times + '</select></td><td><img src="statics/images/rightarrow.png" height="10" /></td>'
+	string += '<td><select id="end'+datenum+'" name="end'+datenum+'" onchange="updateClassRates()" class="myselect2">';
+	string += times + '</select></td><td>=</td><td><span id="hours'+datenum+'"></span>h</td></tr>'
+	laspos[datenum-2] = elem.innerHTML.length
+	elem.innerHTML += string;
+}
+
+function removeDate(){
+	datenum = 1;
+	var elem = document.getElementById('date1');
+	while (elem != null)
+	{
+		datenum++;
+		elem = document.getElementById('date'+datenum);
+	}
+	elem = document.getElementById('dates');
+	var theend = datenum-3;
+	elem.innerHTML = elem.innerHTML.substring(0,laspos[theend])
+}
+</script>
+    <!------------------------------------------------------------->               
+         <table cellspacing="7">
+
+          <tr>
+            <td style="white-space:nowrap;">SUB TOTAL:</td>
+            <td style="border:1px solid #dfdfdf; background-color: #f5f5f5; padding: 5px 10px;"><span id="requesthours">3</span>h</td>
+            <td>x</td>
+            <td style="border:1px solid #dfdfdf; background-color: #f5f5f5; padding: 5px 10px;">$<span id="requestrate2"></span></td>
+            <td>=</td>
+            <td style="border:1px solid #dfdfdf; background-color: #f5f5f5; padding: 5px 15px;">$<span id="requesttotal">30.00</span></td>
+          </tr>
+        </table>
+		</div>
+        </td>
+       </tr>
+      </table>
+
+		<!-- Code for Additional Info was moved below javascript code -->
+       
+      
+<script>
+function updateFormEntry(id,formname)
+{
+	document.getElementById("request"+formname).innerHTML = document.getElementById(formname+id).innerHTML;
+}
+function updateRequestForm(id)
+{
+	document.getElementById("requesttutorclass").value = id.toString();
+	updateFormEntry(id,"name");
+	updateFormEntry(id,"year");
+	updateFormEntry(id,"major");
+	updateFormEntry(id,"minor");
+	updateFormEntry(id,"avail");
+	var elem = document.getElementById("tutorclassid");
+	var str = document.getElementById("classes"+id).innerHTML;
+	elem.innerHTML = str;
+	changerates();
+}
+function updateEmail(email)
+{
+	var elem = document.getElementById("gmail");
+	elem.href = "https://mail.google.com/mail/?view=cm&fs=1&to="+email+"&su=TUTORING%20REQUEST&body=Thank You";
+	elem = document.getElementById("hotmail");
+	elem.href = "https://mail.live.com/default.aspx?rru=compose;to="+email+";subject=TUTORING%20REQUEST;body=Thank You";
+}
+function updateClassRates()
+{
+	var ratestring = document.getElementById("requestrate").innerHTML;
+	var rate = parseFloat(ratestring);
+	document.getElementById("requestrate2").innerHTML = ratestring;
+	var hours = getHoursTotal(1)
+	document.getElementById("requesthours").innerHTML = hours.toString();
+	var total = hours*rate;
+	document.getElementById("requesttotal").innerHTML = moneyFormat(total);
+}
+function getHoursTotal(entry)
+{
+	var startElem = document.getElementById('start'+entry);
+	if (startElem == null)
+		return 0;
+	var endElem = document.getElementById('end'+entry);
+	var hoursElem = document.getElementById('hours'+entry);
+	var hours = parseInt(endElem.value) - parseInt(startElem.value);
+	hoursElem.innerHTML = hours.toString();
+	return hours+getHoursTotal(entry+1);
+}
+function moneyFormat(amount)
+{
+	if (amount < 0)
+		return "-"+moneyFormat(-amount);
+	var dollars = parseInt(amount);
+	var cents = parseInt(amount*100-100*dollars);
+	var string = dollars.toString()+".";
+	if (cents < 10)
+		string += "0";
+	return string + cents.toString();
+}
+function changerates()
+{
+	var myclass = document.getElementById('tutorclassid').value;
+	for (var i = 0; i < ratesperclass.length; i++)
+	{
+		if (ratesperclass[i][0] == myclass)
+		{
+			document.getElementById('requestrate').innerHTML = moneyFormat(ratesperclass[i][1]);
+			updateClassRates();
+			return;
+		}
+	}
+}
+</script>
+      </div>
+
+      <div><br /></div>
+      <div id="askrequestform" >
+		<table width="100%">
+          <tr>
+            <td style="font-weight: bold; font-family:'Myriad Pro Regular'; font-size: 1.2em; text-align: left; padding: 5px 35px;">ADDITIONAL INFO</td>
+          </tr>
+          <tr>
+            <td style="font-family:'Myriad Pro Regular'; border:2px solid #dfdfdf; padding: 10px 0px;"><textarea id="notes" name="notes" rows="4" cols="90">...What location would you like to meet at?</textarea></td>
+          </tr>
+          <tr>
+            <td style="background-color: #dfdfdf;"><input value="SUBMIT REQUEST" type="submit" style="display:inline; color: white; background-color: #0093e7; border: 1px solid white; margin: 1px solid white; height: 20px; width: 200px; font-weight: bold; font-size:0.9em; float: right;"></td>
+          </tr>
+       </table>
+       </div>
+     
+     </form>
+
+     </div>
+
+<!-- InstanceEndEditable -->	
+  </div>
+<!-- /navbar -->
+
+  <div class='footer'>
+    <center>
+    <img id='farrow' onclick='ftoggle();'style='margin:12px;'src="statics/images/uarrow.png" width="48" />
+    <table width="90%" border="0">
+      <tr>
+        <td height="140"><div class="inputbox">
+        <span id='notesbox' style="font-family:'Arvo'">Notes:</span> 
+        <span id='penback'> <img src="../statics/images/pen.png"width="20" /></span>
+        <span id='plusback'> <img src="../statics/images/plus.png"width="20" /></span>
+        <span><textarea name="comments" cols="58" rows="4" style=" background:none; border-style:solid; margin-top:10px;"> </textarea></span>
+        </div></td>
+        <td>&nbsp;</td>
+        <td align="left">
+        <span id="helpbox">Need a Little Help?</span> 
+        <br /><br />
+        <div id="functionalitybutton"><button style="font-family:'Arvo'; font-size:1.0em; display:inline; color:rgb(0,147,231); background-color:transparent; border: 0; margin: 0; margin-left:-10px;">How Tutorsbin Functions</button></div>
+        <br />
+        <div id="faqbutton"><button style="font-family:'Arvo'; font-size:1.0em; display:inline; color:rgb(0,147,231); background-color:transparent; border: 0; margin: 0; margin-left:-10px;">Frequently Asked Questions</button></div>
+        <br />
+        </td>
+      </tr>
+    </table>
+<!-- Popup for when you click on How Tutorsbin Functions -->
+    <div id="howitworksbox">
+      <div style="align:center; margin:5px; border:1px solid #dfdfdf; padding:10px;">
+        <p align="center"><img src="statics/images/howitfunctions.png" width="50%" height="50%" /></p>
+        <div style="padding-left:40px;"><br />
+          <p style="text-indent:50px;">Coming Soon<br />
+          Coming Soon<br />
+          <p><br /><br />Cheers,<br />
+          <span style="color:rgb(0,147,231);">Tutorsbin</span> Team</p>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+
+<!-- Popup for when you click on Frequently Asked Questions -->
+    <div id="faqbox">
+      <div id="qna" style="margin:5px; overflow-y: scroll; height: 500px;">
+        <table style="align:center; width: 100%; border-collapse:collapse;">
+          <tr style="border: 1px solid #d3d3d3;">
+            <th style="font-size:2.5em; border: 1px solid #d3d3d3; padding-top: 20px; padding-bottom: 20px;">Questions and Answers<div style="float: right;"><input class='input' align="right" style="position:absolute; right:6%;width:15%;" id="mysearch" type="search" placeholder="SEARCH BY TOPIC"/><img src="statics/images/searchicon.png" width="25px" align="right" style="position:absolute; right:2%;"/></div></th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #d3d3d3; height: 500px;">
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: How do I pay my tutor?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: Do my college professors know about this?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: Do my college professors know about this?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+              <table align="center" style="width: 85%; border-collapse: collapse; margin: 25px 75px;">
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <th style="padding:20px;background-color: #f5f5f5;">Q: Do my college professors know about this?</th>
+                </tr>
+                <tr style="font-weight: bold; border: 1px solid #d3d3d3; text-align: left;">
+                  <td style="padding:20px;background-color: #fcfcfc;">A: <span style="padding-left:5px; color: gray;">I would start by making a new document, then if you go into preferences you can adjust the size in the dimensions box.</span></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div id="askqna" style="margin:5px; margin-top: 25px;">
+        <table style="align:center; width: 100%; border-collapse:collapse;">
+          <tr style="background-color: #919191; color: white;">
+            <th style="padding:5px;">HAVE A QUESTION THAT DIDN'T GET ANSWERED?</th>
+          </tr>
+          <tr style="text-align: left;">
+            <td style="padding: 20px 75px;"><p>WRITE YOUR QUESTION HERE &nbsp;<input align="right" style="position:absolute; width:50%; padding: 5px 10px;" type="input" placeholder="...what would you like answered?"/></p>
+            <p>TOPIC: &nbsp;<input align="left" style="position:absolute; width:20%; padding: 5px 10px;" type="input" placeholder="financial, etc."/> <input class="pure-button" align="right" style="position:relative; margin-left: 200px;" type="submit" value="SEND"/></p></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  </center>
+<!-- InstanceBeginEditable name="FooterRegion" -->
+<!-- InstanceEndEditable -->
+</body>
+<script type="text/javascript" src="statics/js/mocode.js"></script>
+<!-- InstanceEnd --></html>
